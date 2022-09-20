@@ -1,4 +1,6 @@
+import 'package:curso_flutter_projeto_1/resposta.dart';
 import 'package:flutter/material.dart';
+import './questao.dart';
 
 main() => runApp(const PerguntaApp());
 
@@ -7,7 +9,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   void _responder() {
     setState(() {
-      _perguntaSelecionada++; 
+      _perguntaSelecionada++;
     });
 
     print(_perguntaSelecionada);
@@ -15,7 +17,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-
     final perguntas = [
       'Qual a sua cor favorita?',
       'Qual o seu animal favorito?'
@@ -26,13 +27,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
           appBar: AppBar(title: const Text('Perguntas')),
           body: Column(
             children: <Widget>[
-              Text(perguntas[_perguntaSelecionada]),
-              ElevatedButton(
-                  onPressed: _responder, child: const Text('Resposta 1')),
-              ElevatedButton(
-                  onPressed: _responder, child: const Text('Resposta 2')),
-              ElevatedButton(
-                  onPressed: _responder, child: const Text('Resposta 3'))
+              Questao(perguntas[_perguntaSelecionada]),
+              const Resposta('Resposta 1'),
+              const Resposta('Resposta 2'),
+              const Resposta('Resposta 3')
             ],
           )),
     );
